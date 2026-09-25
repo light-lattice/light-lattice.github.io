@@ -1,0 +1,307 @@
+{
+  "name": "light-lattice",
+  "description": "A lightweight lattice cryptography suite for digital signatures, key encapsulation, and authenticated key exchange.",
+  "intro": "We bring together four algorithms for digital signatures, key encapsulation, and authenticated key exchange, exploring compact representations and efficient lattice-based constructions for post-quantum cryptography.",
+  "algorithms": [
+    {
+      "slug": "bit",
+      "name": "BiT",
+      "type": "Digital Signature",
+      "long_name": "Bimodal Triangular distribution based lattice signatures",
+      "summary": "Lattice signatures with triangular masking and bimodal rejection sampling.",
+      "intro": "BiT is a lattice-based digital signature scheme built on the Fiat–Shamir with Aborts paradigm. It combines triangular masking with a bimodal structure to simplify sampling and reduce rejection, using only integer arithmetic.",
+      "foundation": "Module-LWE · SIS",
+      "design_focus": "Efficient Sampling · Compact Signatures",
+      "structure": "Key Generation · Signing · Verification",
+      "features": [
+        [
+          "Triangular masking",
+          "Masking values are sampled as the difference of two uniform integers, avoiding Gaussian sampling and floating-point arithmetic."
+        ],
+        [
+          "Bimodal rejection",
+          "A triangular source and a trapezoidal target distribution shape the rejection-sampling procedure."
+        ],
+        [
+          "Compact representation",
+          "Public-key compression and signature hints reduce the amount of data that needs to be transmitted."
+        ]
+      ],
+      "history": [
+        {
+          "date": "2026-09-20",
+          "description": "Initial submission.",
+          "version": "2026-09-20 snapshot",
+          "pdf": "sign-02-spec.pdf",
+          "pages": 39,
+          "date_source": "Submission date supplied by the authors"
+        }
+      ],
+      "implementation": {
+        "description": "Reference and optimized implementations of the BiT signature scheme.",
+        "history": [
+          {
+            "date": "2026-09-20",
+            "description": "Initial submission.",
+            "version": "2026-09-20 snapshot",
+            "archive": "BiT.zip",
+            "date_source": "Submission date supplied by the authors"
+          }
+        ]
+      },
+      "long_name_parts": [
+        [
+          "Bi",
+          true
+        ],
+        [
+          "modal ",
+          false
+        ],
+        [
+          "T",
+          true
+        ],
+        [
+          "riangular distribution based lattice signatures",
+          false
+        ]
+      ]
+    },
+    {
+      "slug": "zen",
+      "name": "ZEN",
+      "type": "Key Encapsulation",
+      "long_name": "Zero Divisor Encoding on NTRU Encryption",
+      "summary": "An NTRU-based KEM using zero-divisor encoding and a double-encoding framework.",
+      "intro": "ZEN is an NTRU-based key-encapsulation mechanism derived from DAWN. Its design combines zero-divisor encoding, double encoding, and polynomial-ring arithmetic to pursue compact ciphertexts and efficient computation.",
+      "foundation": "NTRU · Ring-LWE",
+      "design_focus": "Compact Ciphertexts · Efficient Computation",
+      "structure": "Key Generation · Encapsulation · Decapsulation",
+      "features": [
+        [
+          "Zero-divisor encoding",
+          "The encoding structure reduces noise amplification within the underlying NTRU encryption scheme."
+        ],
+        [
+          "Double encoding",
+          "A second encoding layer provides redundancy for correcting errors at the group level."
+        ],
+        [
+          "Efficient arithmetic",
+          "The design includes bit-based sampling and optimized polynomial inversion for constant-time implementations."
+        ]
+      ],
+      "history": [
+        {
+          "date": "2026-09-20",
+          "description": "Initial submission.",
+          "version": "2026-09-20 snapshot",
+          "pdf": "kem-41-spec.pdf",
+          "pages": 38,
+          "date_source": "Submission date supplied by the authors"
+        }
+      ],
+      "implementation": {
+        "description": "Reference software and platform-specific implementations of the ZEN key-encapsulation mechanism.",
+        "history": [
+          {
+            "date": "2026-09-20",
+            "description": "Initial submission.",
+            "version": "2026-09-20 snapshot",
+            "archive": "ZEN.zip",
+            "date_source": "Submission date supplied by the authors"
+          }
+        ]
+      },
+      "long_name_parts": [
+        [
+          "Z",
+          true
+        ],
+        [
+          "ero Divisor ",
+          false
+        ],
+        [
+          "E",
+          true
+        ],
+        [
+          "ncoding on ",
+          false
+        ],
+        [
+          "N",
+          true
+        ],
+        [
+          "TRU Encryption",
+          false
+        ]
+      ]
+    },
+    {
+      "slug": "polarlac",
+      "name": "PolarLAC",
+      "type": "Key Encapsulation",
+      "long_name": "Polar code-enhanced LAttice-based Cryptosystem",
+      "summary": "Module-LWE encryption and key encapsulation enhanced with polar codes.",
+      "intro": "PolarLAC combines Module-LWE with polar error-correcting codes. It provides public-key encryption and a CCA-secure KEM construction, bringing together small moduli, soft-information decoding, and spectral rejection sampling.",
+      "foundation": "Module-LWE",
+      "design_focus": "Small Moduli · Low Decryption Failure Rate",
+      "structure": "Key Generation · Encapsulation · Decapsulation",
+      "features": [
+        [
+          "Small moduli",
+          "Most parameter sets in PolarLAC use q = 257, offering a favorable trade-off between security, bandwidth, and implementation efficiency."
+        ],
+        [
+          "Polar codes",
+          "Successive-cancellation decoding uses soft information about the noise distribution to recover the encoded message."
+        ],
+        [
+          "Spectral rejection",
+          "Sampling constrains the spectral norms of secret and noise polynomials to control decryption failures."
+        ]
+      ],
+      "history": [
+        {
+          "date": "2026-09-20",
+          "description": "Initial submission.",
+          "version": "2026-09-20 snapshot",
+          "pdf": "kem-30-spec.pdf",
+          "pages": 44,
+          "date_source": "Submission date supplied by the authors"
+        }
+      ],
+      "implementation": {
+        "description": "Reference and optimized implementations of the PolarLAC key-encapsulation mechanism.",
+        "history": [
+          {
+            "date": "2026-09-20",
+            "description": "Initial submission.",
+            "version": "2026-09-20 snapshot",
+            "archive": "PolarLAC.zip",
+            "date_source": "Submission date supplied by the authors"
+          }
+        ]
+      },
+      "long_name_parts": [
+        [
+          "Polar",
+          true
+        ],
+        [
+          " code-enhanced ",
+          false
+        ],
+        [
+          "LA",
+          true
+        ],
+        [
+          "ttice-based ",
+          false
+        ],
+        [
+          "C",
+          true
+        ],
+        [
+          "ryptosystem",
+          false
+        ]
+      ]
+    },
+    {
+      "slug": "cretake",
+      "name": "CreTAKE",
+      "type": "Authenticated Key Exchange",
+      "long_name": "Credential-Typed Authenticated Key Exchange Suite",
+      "summary": "Two-message authenticated key exchange across KEM and signature credentials.",
+      "intro": "CreTAKE is a two-message authenticated key-exchange suite for endpoints with KEM-based or signature-based credentials. Four frameworks cover every ordered pairing of these credential types under a common interface.",
+      "foundation": "Module-LWE · SIS · NTRU · Ring-LWE",
+      "design_focus": "Credential Flexibility · Two-Message Exchange",
+      "structure": "Key Generation · Initiation · Response · Completion",
+      "features": [
+        [
+          "Complete credential coverage",
+          "K2S, S2K, K2K, and S2S support both mixed and matching long-term credential types."
+        ],
+        [
+          "Two-message exchange",
+          "One message in each direction establishes a session key with authentication under the selected framework."
+        ],
+        [
+          "Concrete instantiations",
+          "The specification combines PolarLAC, ZEN, and BiT into 25 instances across three security levels."
+        ]
+      ],
+      "history": [
+        {
+          "date": "2026-09-20",
+          "description": "Initial submission.",
+          "version": "2026-09-20 snapshot",
+          "pdf": "kex-03-spec.pdf",
+          "pages": 39,
+          "date_source": "Submission date supplied by the authors"
+        }
+      ],
+      "implementation": {
+        "description": "Reference and optimized implementations of the CreTAKE authenticated key-exchange suite.",
+        "history": [
+          {
+            "date": "2026-09-20",
+            "description": "Initial submission.",
+            "version": "2026-09-20 snapshot",
+            "archive": "CreTAKE.zip",
+            "date_source": "Submission date supplied by the authors"
+          }
+        ]
+      },
+      "long_name_parts": [
+        [
+          "Cre",
+          true
+        ],
+        [
+          "dential-",
+          false
+        ],
+        [
+          "T",
+          true
+        ],
+        [
+          "yped ",
+          false
+        ],
+        [
+          "A",
+          true
+        ],
+        [
+          "uthenticated ",
+          false
+        ],
+        [
+          "K",
+          true
+        ],
+        [
+          "ey ",
+          false
+        ],
+        [
+          "E",
+          true
+        ],
+        [
+          "xchange Suite",
+          false
+        ]
+      ]
+    }
+  ]
+}
