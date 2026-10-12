@@ -7,26 +7,34 @@
       "slug": "bit",
       "name": "BiT",
       "type": "Digital Signature",
-      "long_name": "Bimodal Triangular distribution based lattice signatures",
-      "summary": "Lattice signatures with triangular masking and bimodal rejection sampling.",
-      "intro": "BiT is a lattice-based digital signature scheme built on the Fiat–Shamir with Aborts paradigm. It combines triangular masking with a bimodal structure to simplify sampling and reduce rejection, using only integer arithmetic.",
+      "long_name": "Bimodal Parabolic distribution based lattice signatures",
+      "long_name_highlight": "BiP",
+      "summary": "Lattice signatures with parabolic masking and bimodal rejection sampling.",
+      "intro": "BiT is a lattice-based digital signature scheme built on the Fiat–Shamir with Aborts paradigm. It combines parabolic masking with a bimodal structure and a separately parameterized parabolic target distribution to improve rejection sampling.",
       "foundation": "Module-LWE · SIS",
       "design_focus": "Efficient Sampling · Compact Signatures",
       "structure": "Key Generation · Signing · Verification",
       "features": [
         [
-          "Triangular masking",
-          "Masking values are sampled as the difference of two uniform integers, avoiding Gaussian sampling and floating-point arithmetic."
+          "Parabolic masking",
+          "Masking vectors follow a bounded parabolic distribution, concentrating probability near the center to strengthen masking."
         ],
         [
           "Bimodal rejection",
-          "A triangular source and a trapezoidal target distribution shape the rejection-sampling procedure."
+          "Rejection sampling uses a parabolic target distribution with a separately chosen radius to remove dependence on the secret key."
         ],
         [
           "Compact representation",
           "Public-key compression and signature hints reduce the amount of data that needs to be transmitted."
         ]
       ],
+      "current": {
+        "date": "2026-10-12",
+        "description": "The BiT specification with parabolic masking and bimodal rejection sampling, including construction details, parameter choices, and security analysis.",
+        "version": "2026-10-12 snapshot",
+        "pdf": "BiT-20261012.pdf",
+        "pages": 37
+      },
       "history": [
         {
           "date": "2026-09-20",
@@ -39,6 +47,12 @@
       ],
       "implementation": {
         "description": "Reference and optimized implementations of the BiT signature scheme.",
+        "current": {
+          "date": "2026-10-12",
+          "description": "Reference and AVX2 implementations of the BiT signature scheme with parabolic masking.",
+          "version": "2026-10-12 snapshot",
+          "archive": "BiT-20261012.zip"
+        },
         "history": [
           {
             "date": "2026-09-20",
@@ -59,11 +73,11 @@
           false
         ],
         [
-          "T",
+          "P",
           true
         ],
         [
-          "riangular distribution based lattice signatures",
+          "arabolic distribution based lattice signatures",
           false
         ]
       ]
