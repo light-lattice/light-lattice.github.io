@@ -161,7 +161,7 @@ def split_releases(entries):
 def history_table(a, entries, kind):
     """Shared history layout; each row retains its own downloadable file."""
     key = 'pdf' if kind == 'specification' else 'archive'
-    rows = ''.join(f'<tr><td><time datetime="{e(entry["date"])}">{e(entry["date"])}</time></td><td>{e(entry["description"])}</td><td><a class="version-link" href="{e(release_url(entry,kind))}" download="{e(entry[key])}" aria-label="Download {e(a["name"])} {kind}, {e(entry["version"])}">{e(entry["version"])}</a></td></tr>' for entry in entries)
+    rows = ''.join(f'<tr><td><time datetime="{e(entry["date"])}">{e(entry["date"])}</time></td><td>{e(entry["description"])}<br>{e(entry["date"])} snapshot</td><td><a class="version-link" href="{e(release_url(entry,kind))}" download="{e(entry[key])}" aria-label="Download {e(a["name"])} {kind}, {e(entry["version"])}">{e(entry["version"])}</a></td></tr>' for entry in entries)
     return f'<section class="history" aria-labelledby="history-title"><h3 id="history-title">History</h3><table class="history-table" aria-labelledby="history-title"><thead><tr><th scope="col">Date</th><th scope="col">Description</th><th scope="col">Version</th></tr></thead><tbody>{rows}</tbody></table></section>'
 
 
@@ -170,7 +170,7 @@ def specification(a):
     description = a.get('specification_description', f"The full {a['name']} specification, including construction details, parameter choices, and security analysis.")
     pdf = e(release_url(current,'specification'))
     size = (ROOT/a['slug']/release_path(current,'specification')).stat().st_size/1024/1024
-    return page_top(a,'specification')+f'''<div class="content-grid"><article><h2>Specification</h2><p class="body-copy">{e(description)}</p><div class="document">{FILE_ICON}<div><h3>{e(a['name'])} specification</h3><p>Date: <time datetime="{e(current['date'])}">{e(current['date'])}</time><br>PDF · {current['pages']} pages · {size:.1f} MB</p><div class="actions"><a class="button" href="{pdf}">Open PDF {ARROW}</a><a class="text-link" href="{pdf}" download="{e(current['pdf'])}">Download {DOWNLOAD}</a></div></div></div>{history_table(a,history,'specification')}</article>{facts(a)}</div>'''
+    return page_top(a,'specification')+f'''<div class="content-grid"><article><h2>Specification</h2><p class="body-copy">{e(description)}</p><div class="document">{FILE_ICON}<div><h3>{e(a['name'])} specification</h3><p>Date: <time datetime="{e(current['date'])}">{e(current['date'])}</time><br>Version: {e(current['version'])}<br>PDF · {current['pages']} pages · {size:.1f} MB</p><div class="actions"><a class="button" href="{pdf}">Open PDF {ARROW}</a><a class="text-link" href="{pdf}" download="{e(current['pdf'])}">Download {DOWNLOAD}</a></div></div></div>{history_table(a,history,'specification')}</article>{facts(a)}</div>'''
 
 
 def implementation(a):
@@ -179,7 +179,7 @@ def implementation(a):
     description = package['description']
     archive = e(release_url(current,'implementation'))
     size = (ROOT/a['slug']/release_path(current,'implementation')).stat().st_size/1024/1024
-    return page_top(a,'implementation')+f'''<div class="content-grid"><article><h2>Implementation</h2><p class="body-copy">{e(description)}</p><div class="document">{CODE_ICON}<div><h3>{e(a['name'])} source package</h3><p>Date: <time datetime="{e(current['date'])}">{e(current['date'])}</time><br>ZIP · {size:.1f} MB</p><div class="actions"><a class="button" href="{archive}" download="{e(current['archive'])}">Download source {DOWNLOAD}</a></div></div></div>{history_table(a,history,'implementation')}</article>{facts(a)}</div>'''
+    return page_top(a,'implementation')+f'''<div class="content-grid"><article><h2>Implementation</h2><p class="body-copy">{e(description)}</p><div class="document">{CODE_ICON}<div><h3>{e(a['name'])} source package</h3><p>Date: <time datetime="{e(current['date'])}">{e(current['date'])}</time><br>Version: {e(current['version'])}<br>ZIP · {size:.1f} MB</p><div class="actions"><a class="button" href="{archive}" download="{e(current['archive'])}">Download source {DOWNLOAD}</a></div></div></div>{history_table(a,history,'implementation')}</article>{facts(a)}</div>'''
 
 
 def main():

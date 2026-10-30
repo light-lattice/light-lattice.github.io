@@ -32,14 +32,14 @@
         {
           "date": "2026-10-12",
           "description": "The BiT specification with parabolic masking and bimodal rejection sampling, including construction details, parameter choices, and security analysis.",
-          "version": "2026-10-12 snapshot",
+          "version": "v2.0",
           "pdf": "BiT-20261012.pdf",
           "pages": 37
         },
         {
           "date": "2026-09-20",
           "description": "Initial submission.",
-          "version": "2026-09-20 snapshot",
+          "version": "v1.0",
           "pdf": "sign-02-spec.pdf",
           "pages": 39,
           "date_source": "Submission date supplied by the authors"
@@ -51,13 +51,13 @@
           {
             "date": "2026-10-12",
             "description": "Reference and AVX2 implementations of the BiT signature scheme with parabolic masking.",
-            "version": "2026-10-12 snapshot",
+            "version": "v2.0",
             "archive": "BiT-20261012.zip"
           },
           {
             "date": "2026-09-20",
             "description": "Initial submission.",
-            "version": "2026-09-20 snapshot",
+            "version": "v1.0",
             "archive": "BiT.zip",
             "date_source": "Submission date supplied by the authors"
           }
@@ -111,14 +111,14 @@
         {
           "date": "2026-10-30",
           "description": "Updated specification.",
-          "version": "2026-10-30 snapshot",
+          "version": "v2.0",
           "pdf": "ZEN-20261030.pdf",
           "pages": 37
         },
         {
           "date": "2026-09-20",
           "description": "Initial submission.",
-          "version": "2026-09-20 snapshot",
+          "version": "v1.0",
           "pdf": "kem-41-spec.pdf",
           "pages": 38,
           "date_source": "Submission date supplied by the authors"
@@ -130,19 +130,19 @@
           {
             "date": "2026-10-30",
             "description": "Updated implementations.",
-            "version": "2026-10-30 snapshot",
+            "version": "v2.0",
             "archive": "ZEN-20261030.zip"
           },
           {
             "date": "2026-10-19",
             "description": "Updated reference and AVX2 implementations, including SM3 and FIPS 202 variants.",
-            "version": "2026-10-19 snapshot",
+            "version": "v1.1",
             "archive": "ZEN-20261019.zip"
           },
           {
             "date": "2026-09-20",
             "description": "Initial submission.",
-            "version": "2026-09-20 snapshot",
+            "version": "v1.0",
             "archive": "ZEN.zip",
             "date_source": "Submission date supplied by the authors"
           }
@@ -203,7 +203,7 @@
         {
           "date": "2026-09-20",
           "description": "Initial submission.",
-          "version": "2026-09-20 snapshot",
+          "version": "v1.0",
           "pdf": "kem-30-spec.pdf",
           "pages": 44,
           "date_source": "Submission date supplied by the authors"
@@ -215,7 +215,7 @@
           {
             "date": "2026-09-20",
             "description": "Initial submission.",
-            "version": "2026-09-20 snapshot",
+            "version": "v1.0",
             "archive": "PolarLAC.zip",
             "date_source": "Submission date supplied by the authors"
           }
@@ -276,7 +276,7 @@
         {
           "date": "2026-09-20",
           "description": "Initial submission.",
-          "version": "2026-09-20 snapshot",
+          "version": "v1.0",
           "pdf": "kex-03-spec.pdf",
           "pages": 39,
           "date_source": "Submission date supplied by the authors"
@@ -288,7 +288,7 @@
           {
             "date": "2026-09-20",
             "description": "Initial submission.",
-            "version": "2026-09-20 snapshot",
+            "version": "v1.0",
             "archive": "CreTAKE.zip",
             "date_source": "Submission date supplied by the authors"
           }
