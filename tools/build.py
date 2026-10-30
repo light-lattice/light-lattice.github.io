@@ -150,6 +150,14 @@ def release_url(entry, kind):
     return quote(release_path(entry, kind).as_posix())
 
 
+def split_releases(entries):
+    """Select the newest release by date and retain older releases for History."""
+    ordered = sorted(entries, key=lambda entry: entry['date'], reverse=True)
+    # Preserve the existing History layout for algorithms with only one release.
+    history = ordered[1:] if len(ordered) > 1 else ordered
+    return ordered[0], history
+
+
 def history_table(a, entries, kind):
     """Shared history layout; each row retains its own downloadable file."""
     key = 'pdf' if kind == 'specification' else 'archive'
@@ -158,9 +166,8 @@ def history_table(a, entries, kind):
 
 
 def specification(a):
-    history = sorted(a['history'], key=lambda entry: entry['date'], reverse=True)
-    current = a['current'] if 'current' in a else history[0]
-    description = a.get('current', {}).get('description', f"The full {a['name']} specification, including construction details, parameter choices, and security analysis.")
+    current, history = split_releases(a['history'])
+    description = a.get('specification_description', f"The full {a['name']} specification, including construction details, parameter choices, and security analysis.")
     pdf = e(release_url(current,'specification'))
     size = (ROOT/a['slug']/release_path(current,'specification')).stat().st_size/1024/1024
     return page_top(a,'specification')+f'''<div class="content-grid"><article><h2>Specification</h2><p class="body-copy">{e(description)}</p><div class="document">{FILE_ICON}<div><h3>{e(a['name'])} specification</h3><p>Date: <time datetime="{e(current['date'])}">{e(current['date'])}</time><br>PDF · {current['pages']} pages · {size:.1f} MB</p><div class="actions"><a class="button" href="{pdf}">Open PDF {ARROW}</a><a class="text-link" href="{pdf}" download="{e(current['pdf'])}">Download {DOWNLOAD}</a></div></div></div>{history_table(a,history,'specification')}</article>{facts(a)}</div>'''
@@ -168,9 +175,8 @@ def specification(a):
 
 def implementation(a):
     package = a['implementation']
-    history = sorted(package['history'], key=lambda entry: entry['date'], reverse=True)
-    current = package['current'] if 'current' in package else history[0]
-    description = package.get('current', {}).get('description', package['description'])
+    current, history = split_releases(package['history'])
+    description = package['description']
     archive = e(release_url(current,'implementation'))
     size = (ROOT/a['slug']/release_path(current,'implementation')).stat().st_size/1024/1024
     return page_top(a,'implementation')+f'''<div class="content-grid"><article><h2>Implementation</h2><p class="body-copy">{e(description)}</p><div class="document">{CODE_ICON}<div><h3>{e(a['name'])} source package</h3><p>Date: <time datetime="{e(current['date'])}">{e(current['date'])}</time><br>ZIP · {size:.1f} MB</p><div class="actions"><a class="button" href="{archive}" download="{e(current['archive'])}">Download source {DOWNLOAD}</a></div></div></div>{history_table(a,history,'implementation')}</article>{facts(a)}</div>'''
@@ -185,10 +191,7 @@ def main():
         if ''.join(text for text,accent in a['long_name_parts'] if accent) != highlight:
             raise ValueError(f"{a['name']}: highlighted letters must spell {highlight}")
         for releases,kind in [(a,'specification'),(a['implementation'],'implementation')]:
-            # An explicit current release leaves the historical records intact.
-            entries = list(releases['history'])
-            if 'current' in releases:
-                entries.append(releases['current'])
+            entries = releases['history']
             if not entries:
                 raise ValueError(f"{a['name']}: at least one {kind} release entry is required")
             seen = set()

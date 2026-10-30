@@ -28,14 +28,14 @@
           "Public-key compression and signature hints reduce the amount of data that needs to be transmitted."
         ]
       ],
-      "current": {
-        "date": "2026-10-12",
-        "description": "The BiT specification with parabolic masking and bimodal rejection sampling, including construction details, parameter choices, and security analysis.",
-        "version": "2026-10-12 snapshot",
-        "pdf": "BiT-20261012.pdf",
-        "pages": 37
-      },
       "history": [
+        {
+          "date": "2026-10-12",
+          "description": "The BiT specification with parabolic masking and bimodal rejection sampling, including construction details, parameter choices, and security analysis.",
+          "version": "2026-10-12 snapshot",
+          "pdf": "BiT-20261012.pdf",
+          "pages": 37
+        },
         {
           "date": "2026-09-20",
           "description": "Initial submission.",
@@ -46,14 +46,14 @@
         }
       ],
       "implementation": {
-        "description": "Reference and optimized implementations of the BiT signature scheme.",
-        "current": {
-          "date": "2026-10-12",
-          "description": "Reference and AVX2 implementations of the BiT signature scheme with parabolic masking.",
-          "version": "2026-10-12 snapshot",
-          "archive": "BiT-20261012.zip"
-        },
+        "description": "Reference and AVX2 implementations of the BiT signature scheme with parabolic masking.",
         "history": [
+          {
+            "date": "2026-10-12",
+            "description": "Reference and AVX2 implementations of the BiT signature scheme with parabolic masking.",
+            "version": "2026-10-12 snapshot",
+            "archive": "BiT-20261012.zip"
+          },
           {
             "date": "2026-09-20",
             "description": "Initial submission.",
@@ -80,7 +80,8 @@
           "arabolic distribution based lattice signatures",
           false
         ]
-      ]
+      ],
+      "specification_description": "The BiT specification with parabolic masking and bimodal rejection sampling, including construction details, parameter choices, and security analysis."
     },
     {
       "slug": "zen",
@@ -108,6 +109,13 @@
       ],
       "history": [
         {
+          "date": "2026-10-30",
+          "description": "Updated specification.",
+          "version": "2026-10-30 snapshot",
+          "pdf": "ZEN-20261030.pdf",
+          "pages": 37
+        },
+        {
           "date": "2026-09-20",
           "description": "Initial submission.",
           "version": "2026-09-20 snapshot",
@@ -117,8 +125,20 @@
         }
       ],
       "implementation": {
-        "description": "Reference software and platform-specific implementations of the ZEN key-encapsulation mechanism.",
+        "description": "Reference and AVX2 implementations of the ZEN key-encapsulation mechanism, with SM3 and FIPS 202 variants.",
         "history": [
+          {
+            "date": "2026-10-30",
+            "description": "Updated implementations.",
+            "version": "2026-10-30 snapshot",
+            "archive": "ZEN-20261030.zip"
+          },
+          {
+            "date": "2026-10-19",
+            "description": "Updated reference and AVX2 implementations, including SM3 and FIPS 202 variants.",
+            "version": "2026-10-19 snapshot",
+            "archive": "ZEN-20261019.zip"
+          },
           {
             "date": "2026-09-20",
             "description": "Initial submission.",
