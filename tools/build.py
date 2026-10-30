@@ -161,7 +161,7 @@ def split_releases(entries):
 def history_table(a, entries, kind):
     """Shared history layout; each row retains its own downloadable file."""
     key = 'pdf' if kind == 'specification' else 'archive'
-    rows = ''.join(f'<tr><td><time datetime="{e(entry["date"])}">{e(entry["date"])}</time></td><td>{e(entry["description"])}<br>{e(entry["date"])} snapshot</td><td><a class="version-link" href="{e(release_url(entry,kind))}" download="{e(entry[key])}" aria-label="Download {e(a["name"])} {kind}, {e(entry["version"])}">{e(entry["version"])}</a></td></tr>' for entry in entries)
+    rows = ''.join(f'<tr><td><time datetime="{e(entry["date"])}">{e(entry["date"])}</time></td><td><a class="version-link" href="{e(release_url(entry,kind))}" download="{e(entry[key])}" aria-label="Download {e(a["name"])} {kind}, {e(entry["version"])}">{e(entry["date"])} snapshot</a></td><td>{e(entry["version"])}</td></tr>' for entry in entries)
     return f'<section class="history" aria-labelledby="history-title"><h3 id="history-title">History</h3><table class="history-table" aria-labelledby="history-title"><thead><tr><th scope="col">Date</th><th scope="col">Description</th><th scope="col">Version</th></tr></thead><tbody>{rows}</tbody></table></section>'
 
 
