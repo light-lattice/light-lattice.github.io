@@ -30,11 +30,18 @@
       ],
       "history": [
         {
+          "date": "2026-11-06",
+          "description": "Updated specification.",
+          "version": "v2.1",
+          "pdf": "BiT-20261106.pdf",
+          "pages": 39
+        },
+        {
           "date": "2026-10-12",
           "description": "The BiT specification with parabolic masking and bimodal rejection sampling, including construction details, parameter choices, and security analysis.",
           "version": "v2.0",
           "pdf": "BiT-20261012.pdf",
-          "pages": 37
+          "pages": 39
         },
         {
           "date": "2026-09-20",
@@ -48,6 +55,12 @@
       "implementation": {
         "description": "Reference and AVX2 implementations of the BiT signature scheme with parabolic masking.",
         "history": [
+          {
+            "date": "2026-11-06",
+            "description": "Updated implementations.",
+            "version": "v2.1",
+            "archive": "BiT-20261106.zip"
+          },
           {
             "date": "2026-10-12",
             "description": "Reference and AVX2 implementations of the BiT signature scheme with parabolic masking.",
